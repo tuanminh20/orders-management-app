@@ -59,9 +59,11 @@ export default function Index() {
         <IndexTable.Cell>{order.customer.fullName}</IndexTable.Cell>
         <IndexTable.Cell>{order.customer.email}</IndexTable.Cell>
         <IndexTable.Cell>{order.customer.address}</IndexTable.Cell>
-        <IndexTable.Cell>{order.tags.map((tag) => (
-          <Tag>{tag.name}</Tag>
-        ))}
+        <IndexTable.Cell>{
+          order.tags.map((tag) => (
+            <Tag>{tag.name}</Tag>
+          ))
+        }
         </IndexTable.Cell>
         <IndexTable.Cell>{order.paymentGateway}</IndexTable.Cell>
         <IndexTable.Cell>
@@ -91,7 +93,8 @@ export default function Index() {
 
   return (
     <Page
-      title="Orders Page">
+      title="Orders Page"
+      fullWidth={true}>
       <Card>
         <IndexTable
           condensed={useBreakpoints().smDown}
