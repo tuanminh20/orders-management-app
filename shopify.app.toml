@@ -3,7 +3,7 @@
 client_id = "a3724dd7a289c9ad81f683ce7c5f1f31"
 name = "orders-management-app"
 handle = "orders-management-app-1"
-application_url = "https://issn-commissions-chubby-internship.trycloudflare.com"
+application_url = "https://smoking-sagem-boundaries-evident.trycloudflare.com"
 embedded = true
 
 [build]
@@ -13,13 +13,13 @@ include_config_on_deploy = true
 
 [access_scopes]
 # Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
-scopes = "write_products"
+scopes = "write_products, read_orders"
 
 [auth]
 redirect_urls = [
-  "https://issn-commissions-chubby-internship.trycloudflare.com/auth/callback",
-  "https://issn-commissions-chubby-internship.trycloudflare.com/auth/shopify/callback",
-  "https://issn-commissions-chubby-internship.trycloudflare.com/api/auth/callback"
+  "https://smoking-sagem-boundaries-evident.trycloudflare.com/auth/callback",
+  "https://smoking-sagem-boundaries-evident.trycloudflare.com/auth/shopify/callback",
+  "https://smoking-sagem-boundaries-evident.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
@@ -28,6 +28,10 @@ api_version = "2024-07"
   [[webhooks.subscriptions]]
   topics = [ "app/uninstalled" ]
   uri = "/webhooks"
+
+  [[webhooks.subscriptions]]
+  topics = ["orders/create"]
+  uri = "https://webhook.site/b01b6e7a-6dd5-402e-b19f-60ce4b81c524"
 
 [pos]
 embedded = false
