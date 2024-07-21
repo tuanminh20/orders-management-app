@@ -7,37 +7,22 @@ import {
   useBreakpoints,
   Page,
 } from '@shopify/polaris';
+import { getOrders } from '../models/Order.server';
+import { authenticate } from "../shopify.server";
+import { json } from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
+
+export async function loader({ request }) {
+  const { session } = await authenticate.admin(request);
+  const orders = await getOrders(session.shop);
+
+  return json({
+    orders,
+  });
+}
 
 export default function OrdersPage() {
-  const orders = [
-    {
-      id: '1020',
-      order: '#1020',
-      date: 'Jul 20 at 4:34pm',
-      customer: 'Jaydon Stanton',
-      total: '$969.44',
-      paymentStatus: <Badge progress="complete">Paid</Badge>,
-      fulfillmentStatus: <Badge progress="incomplete">Unfulfilled</Badge>,
-    },
-    {
-      id: '1019',
-      order: '#1019',
-      date: 'Jul 20 at 3:46pm',
-      customer: 'Ruben Westerfelt',
-      total: '$701.19',
-      paymentStatus: <Badge progress="partiallyComplete">Partially paid</Badge>,
-      fulfillmentStatus: <Badge progress="incomplete">Unfulfilled</Badge>,
-    },
-    {
-      id: '1018',
-      order: '#1018',
-      date: 'Jul 20 at 3.44pm',
-      customer: 'Leo Carder',
-      total: '$798.24',
-      paymentStatus: <Badge progress="complete">Paid</Badge>,
-      fulfillmentStatus: <Badge progress="incomplete">Unfulfilled</Badge>,
-    },
-  ];
+  const { orders } = useLoaderData();
   const resourceName = {
     singular: 'order',
     plural: 'orders',
