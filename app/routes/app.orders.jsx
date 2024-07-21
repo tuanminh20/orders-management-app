@@ -3,7 +3,7 @@ import {
   Card,
   useIndexResourceState,
   Text,
-  Badge,
+  Tag,
   useBreakpoints,
   Page,
 } from '@shopify/polaris';
@@ -41,32 +41,32 @@ export default function Index() {
     useIndexResourceState(orders);
 
   const rowMarkup = orders.map(
-    (
-      {id, orderNumber, createdAt, customerId, total, paymentGateway},
-      index,
-    ) => (
+    (order, index) => (
       <IndexTable.Row
-        id={id}
-        key={id}
-        selected={selectedResources.includes(id)}
+        id={order.id}
+        key={order.id}
+        selected={selectedResources.includes(order.id)}
         position={index}
       >
         <IndexTable.Cell>
           <Text variant="bodyMd" fontWeight="bold" as="span">
-            #{orderNumber}
+            #{order.orderNumber}
           </Text>
         </IndexTable.Cell>
         <IndexTable.Cell>
-          {new Date(createdAt).toDateString()}
+          {new Date(order.createdAt).toDateString()}
         </IndexTable.Cell>
-        <IndexTable.Cell>{customerId}</IndexTable.Cell>
-        <IndexTable.Cell>{customerId}</IndexTable.Cell>
-        <IndexTable.Cell>{customerId}</IndexTable.Cell>
-        <IndexTable.Cell>Todo: Tags</IndexTable.Cell>
-        <IndexTable.Cell>{paymentGateway}</IndexTable.Cell>
+        <IndexTable.Cell>{order.customer.fullName}</IndexTable.Cell>
+        <IndexTable.Cell>{order.customer.email}</IndexTable.Cell>
+        <IndexTable.Cell>{order.customer.address}</IndexTable.Cell>
+        <IndexTable.Cell>{order.tags.map((tag) => (
+          <Tag>{tag.name}</Tag>
+        ))}
+        </IndexTable.Cell>
+        <IndexTable.Cell>{order.paymentGateway}</IndexTable.Cell>
         <IndexTable.Cell>
           <Text as="span" alignment="end" numeric>
-            {total}
+            {order.total}
           </Text>
         </IndexTable.Cell>
       </IndexTable.Row>
