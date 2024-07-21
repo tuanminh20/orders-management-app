@@ -30,3 +30,28 @@ model Session {
   collaborator  Boolean?  @default(false)
   emailVerified Boolean?  @default(false)
 }
+
+model Order {
+  id               Int      @id @default(autoincrement())
+  orderNumber      String
+  total            Decimal
+  paymentGateway   Int
+  createdAt        DateTime @default(now())
+  customer         Customer @relation(fields: [customerId], references: [id])
+  customerId       Int
+  tags             Tag[]
+}
+
+model Customer {
+  id               Int      @id @default(autoincrement())
+  fullName         String
+  email            String
+  address          String
+  orders           Order[]
+}
+
+model Tag {
+  id               Int      @id @default(autoincrement())
+  name             String
+  orders           Order[]
+}
