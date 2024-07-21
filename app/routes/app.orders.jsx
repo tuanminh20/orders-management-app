@@ -6,6 +6,7 @@ import {
   Tag,
   useBreakpoints,
   Page,
+  LegacyStack,
 } from '@shopify/polaris';
 import { getOrders } from '../models/Order.server';
 import { authenticate } from "../shopify.server";
@@ -59,11 +60,8 @@ export default function Index() {
         <IndexTable.Cell>{order.customer.fullName}</IndexTable.Cell>
         <IndexTable.Cell>{order.customer.email}</IndexTable.Cell>
         <IndexTable.Cell>{order.customer.address}</IndexTable.Cell>
-        <IndexTable.Cell>{
-          order.tags.map((tag) => (
-            <Tag>{tag.name}</Tag>
-          ))
-        }
+        <IndexTable.Cell>
+          <LegacyStack spacing="tight">{order.tags.map((tag) => (<Tag>{tag.name}</Tag>))}</LegacyStack>
         </IndexTable.Cell>
         <IndexTable.Cell>{order.paymentGateway}</IndexTable.Cell>
         <IndexTable.Cell>
