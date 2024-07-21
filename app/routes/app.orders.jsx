@@ -12,6 +12,7 @@ import { getOrders } from '../models/Order.server';
 import { authenticate } from "../shopify.server";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
+import saveAs from "file-saver";
 
 export async function loader({ request }) {
   const { session } = await authenticate.admin(request);
@@ -30,6 +31,36 @@ const OrderTable = ({ orders }) => {
 
 const OrderRow = ({ order }) => {
 };
+
+const exportOrdersToCsv = (orders) => {
+  const headers = [
+    'Order Number',
+    'Total Price',
+    'Payment Gateway',
+    'Customer Email',
+    'Customer Full Name',
+    'Customer Address',
+    'Tags',
+    'Created At',
+  ];
+  let csv = '';
+  csv += headers.join(',') + '\n';
+
+  orders.forEach((order) => {
+    csv += [
+      order.orderNumber,
+      order.total,
+      order.paymentGateway,
+      order.customer.email,
+      order.customer.fullName,
+      `"${order.customer.address}"`,
+      `"${order.tags.map((tag) => tag.name).join(',')}"`,
+      order.createdAt,
+    ].join(',') + '\n';
+  });
+
+  saveAs(new Blob([csv], { type: 'text/csv;charset=utf-8;' }), 'orders.csv');
+}
 
 export default function Index() {
   const { orders } = useLoaderData();
@@ -84,7 +115,10 @@ export default function Index() {
     },
     {
       content: 'Export to CSV',
-      onAction: () => console.log('Todo: implement CSV exporting'),
+      onAction: () => {
+        const selectedOrders = orders.filter((order) => selectedResources.includes(order.id));
+        exportOrdersToCsv(selectedOrders);
+      }
     },
   ];
   const bulkActions = [];
