@@ -42,7 +42,7 @@ export default function Index() {
 
   const rowMarkup = orders.map(
     (
-      {id, order, date, customer, total, paymentStatus, fulfillmentStatus},
+      {id, orderNumber, createdAt, customerId, total, paymentGateway},
       index,
     ) => (
       <IndexTable.Row
@@ -53,18 +53,22 @@ export default function Index() {
       >
         <IndexTable.Cell>
           <Text variant="bodyMd" fontWeight="bold" as="span">
-            {order}
+            #{orderNumber}
           </Text>
         </IndexTable.Cell>
-        <IndexTable.Cell>{date}</IndexTable.Cell>
-        <IndexTable.Cell>{customer}</IndexTable.Cell>
+        <IndexTable.Cell>
+          {new Date(createdAt).toDateString()}
+        </IndexTable.Cell>
+        <IndexTable.Cell>{customerId}</IndexTable.Cell>
+        <IndexTable.Cell>{customerId}</IndexTable.Cell>
+        <IndexTable.Cell>{customerId}</IndexTable.Cell>
+        <IndexTable.Cell>Todo: Tags</IndexTable.Cell>
+        <IndexTable.Cell>{paymentGateway}</IndexTable.Cell>
         <IndexTable.Cell>
           <Text as="span" alignment="end" numeric>
             {total}
           </Text>
         </IndexTable.Cell>
-        <IndexTable.Cell>{paymentStatus}</IndexTable.Cell>
-        <IndexTable.Cell>{fulfillmentStatus}</IndexTable.Cell>
       </IndexTable.Row>
     ),
   );
@@ -101,11 +105,11 @@ export default function Index() {
             {title: 'Order'},
             {title: 'Date'},
             {title: 'Customer'},
-            {title: 'Total'},
-            {title: 'Payment Gateway'},
             {title: 'Email'},
             {title: 'Address'},
             {title: 'Tags'},
+            {title: 'Payment Gateway'},
+            {title: 'Total'},
           ]}
           bulkActions={bulkActions}
           promotedBulkActions={promotedBulkActions}
