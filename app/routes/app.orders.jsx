@@ -21,7 +21,16 @@ export async function loader({ request }) {
   });
 }
 
-export default function OrdersPage() {
+const EmptyOrderState = (onAction) => {
+};
+
+const OrderTable = ({ orders }) => {
+};
+
+const OrderRow = ({ order }) => {
+};
+
+export default function Index() {
   const { orders } = useLoaderData();
   const resourceName = {
     singular: 'order',
