@@ -49,10 +49,10 @@ const exportOrdersToCsv = (orders) => {
   orders.forEach((order) => {
     csv += [
       order.orderNumber,
-      order.total,
-      order.paymentGateway,
+      order.totalPrice,
+      `"${order.paymentGatewayNames}"`,
       order.customer.email,
-      order.customer.fullName,
+      [order.customer.firstName, order.customer.lastName].join(' '),
       `"${order.customer.address}"`,
       `"${order.tags.map((tag) => tag.name).join(',')}"`,
       order.createdAt,
@@ -87,6 +87,12 @@ export default function Index() {
         </IndexTable.Cell>
         <IndexTable.Cell>
           {new Date(order.createdAt).toDateString()}
+        </IndexTable.Cell>
+        <IndexTable.Cell>{[order.customer.firstName, order.customer.lastName].join(' ')}</IndexTable.Cell>
+        <IndexTable.Cell>{order.customer.email}</IndexTable.Cell>
+        <IndexTable.Cell>{order.customer.address}</IndexTable.Cell>
+        <IndexTable.Cell>
+          <LegacyStack spacing="tight">{order.tags.map((tag) => (<Tag>{tag.name}</Tag>))}</LegacyStack>
         </IndexTable.Cell>
         <IndexTable.Cell>{order.paymentGatewayNames}</IndexTable.Cell>
         <IndexTable.Cell>
