@@ -20,7 +20,6 @@ export const action = async ({ request }) => {
       // Save the order to the database.
       await db.order.create({
         data: {
-          id: payload.id,
           orderNumber: payload.order_number,
           totalPrice: payload.total_price,
           createdAt: payload.created_at,
@@ -28,7 +27,7 @@ export const action = async ({ request }) => {
           paymentGatewayNames: payload.payment_gateway_names.join(", "),
           customer: {
             connectOrCreate: {
-              where: { customerId: payload.customer.id },
+              where: { id: payload.customer.id },
               create: {
                 id: payload.customer.id,
                 email: payload.customer.email,
