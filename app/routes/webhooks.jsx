@@ -18,6 +18,7 @@ export const action = async ({ request }) => {
     case "ORDERS_CREATE":
       console.log("orders/create: ", payload);
       // Save the order to the database.
+
       await db.order.create({
         data: {
           id: payload.id,
@@ -37,10 +38,19 @@ export const action = async ({ request }) => {
                 address: payload.customer.default_address.country,
               },
             },
-          }
+          },
+          tags: {
+            connectOrCreate: payload.tags.split(',').map((tag) => ({
+              where: { name: tag.trim() },
+              create: {
+                name: tag.trim(),
+              },
+            })),
+          },
         },
         include: {
           customer: true,
+          tags: true,
         },
       });
       break;
