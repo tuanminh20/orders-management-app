@@ -37,15 +37,18 @@ model Order {
   totalPrice          String   @default("0")
   createdAt           DateTime @default(now())
   updatedAt           DateTime @default(now())
-  paymentGatewayNames String?
+  paymentGatewayNames String   @default("")
+  Customer            Customer @relation(fields: [customerId], references: [id])
+  customerId          BigInt
 }
 
 model Customer {
-  id        Int     @id @default(autoincrement())
+  id        BigInt  @id @default(autoincrement())
   firstName String?
   lastName  String?
   email     String?
   address   String
+  Order     Order[]
 }
 
 model Tag {
