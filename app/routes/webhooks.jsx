@@ -23,8 +23,7 @@ export const action = async ({ request }) => {
           orderNumber: payload.order_number,
           totalPrice: payload.total_price,
           createdAt: payload.created_at,
-          paymentGateway: 1, // TODO: Map the payment gateway.
-          customerId: 1, // TODO: Map the customer.
+          updatedAt: payload.updated_at
         },
       });
       break;
