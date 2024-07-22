@@ -3,7 +3,7 @@
 client_id = "a3724dd7a289c9ad81f683ce7c5f1f31"
 name = "orders-management-app"
 handle = "orders-management-app-1"
-application_url = "https://binary-received-media-web.trycloudflare.com"
+application_url = "https://rico-cloudy-doc-mayor.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,16 +17,16 @@ scopes = "read_orders,write_products"
 
 [auth]
 redirect_urls = [
-  "https://binary-received-media-web.trycloudflare.com/auth/callback",
-  "https://binary-received-media-web.trycloudflare.com/auth/shopify/callback",
-  "https://binary-received-media-web.trycloudflare.com/api/auth/callback"
+  "https://rico-cloudy-doc-mayor.trycloudflare.com/auth/callback",
+  "https://rico-cloudy-doc-mayor.trycloudflare.com/auth/shopify/callback",
+  "https://rico-cloudy-doc-mayor.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
 api_version = "2024-07"
 
   [[webhooks.subscriptions]]
-  topics = [ "app/uninstalled" ]
+  topics = [ "app/uninstalled", "orders/create", "orders/edited" ]
   uri = "/webhooks"
 
   [[webhooks.subscriptions]]
