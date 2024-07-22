@@ -1,6 +1,7 @@
 import { authenticate } from "../shopify.server";
 import db from "../db.server";
 import { create } from "domain";
+import { Tag } from "@shopify/polaris";
 
 export const action = async ({ request }) => {
   const { topic, shop, session, admin, payload } = await authenticate.webhook(request);
@@ -23,6 +24,7 @@ export const action = async ({ request }) => {
           totalPrice: payload.total_price,
           createdAt: payload.created_at,
           paymentGateway: 1, // TODO: Map the payment gateway.
+          customerId: 1, // TODO: Map the customer.
         },
       });
       break;
