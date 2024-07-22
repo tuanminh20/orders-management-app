@@ -88,16 +88,10 @@ export default function Index() {
         <IndexTable.Cell>
           {new Date(order.createdAt).toDateString()}
         </IndexTable.Cell>
-        <IndexTable.Cell>{order.customer.fullName}</IndexTable.Cell>
-        <IndexTable.Cell>{order.customer.email}</IndexTable.Cell>
-        <IndexTable.Cell>{order.customer.address}</IndexTable.Cell>
-        <IndexTable.Cell>
-          <LegacyStack spacing="tight">{order.tags.map((tag) => (<Tag>{tag.name}</Tag>))}</LegacyStack>
-        </IndexTable.Cell>
-        <IndexTable.Cell>{order.paymentGateway}</IndexTable.Cell>
+        <IndexTable.Cell>{order.paymentGatewayNames}</IndexTable.Cell>
         <IndexTable.Cell>
           <Text as="span" alignment="end" numeric>
-            {order.total}
+            {order.totalPrice}
           </Text>
         </IndexTable.Cell>
       </IndexTable.Row>
