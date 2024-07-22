@@ -20,6 +20,7 @@ export const action = async ({ request }) => {
       // Save the order to the database.
       await db.order.create({
         data: {
+          id: payload.id,
           orderNumber: payload.order_number,
           totalPrice: payload.total_price,
           createdAt: payload.created_at,
