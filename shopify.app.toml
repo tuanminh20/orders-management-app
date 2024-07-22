@@ -3,7 +3,7 @@
 client_id = "a3724dd7a289c9ad81f683ce7c5f1f31"
 name = "orders-management-app"
 handle = "orders-management-app-1"
-application_url = "https://intl-stamp-strengths-flooring.trycloudflare.com"
+application_url = "https://alt-bleeding-surround-late.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "read_orders,write_products"
 
 [auth]
 redirect_urls = [
-  "https://intl-stamp-strengths-flooring.trycloudflare.com/auth/callback",
-  "https://intl-stamp-strengths-flooring.trycloudflare.com/auth/shopify/callback",
-  "https://intl-stamp-strengths-flooring.trycloudflare.com/api/auth/callback"
+  "https://alt-bleeding-surround-late.trycloudflare.com/auth/callback",
+  "https://alt-bleeding-surround-late.trycloudflare.com/auth/shopify/callback",
+  "https://alt-bleeding-surround-late.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]

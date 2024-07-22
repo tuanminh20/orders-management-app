@@ -38,6 +38,9 @@ export const action = async ({ request }) => {
             },
           }
         },
+        include: {
+          customer: true,
+        },
       });
       break;
     case "ORDERS_EDITED":
