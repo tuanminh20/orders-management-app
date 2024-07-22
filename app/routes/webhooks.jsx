@@ -1,5 +1,6 @@
 import { authenticate } from "../shopify.server";
 import db from "../db.server";
+import { create } from "domain";
 
 export const action = async ({ request }) => {
   const { topic, shop, session, admin, payload } = await authenticate.webhook(request);
@@ -14,6 +15,15 @@ export const action = async ({ request }) => {
   switch (topic) {
     case "ORDERS_CREATE":
       console.log("orders/create: ", payload);
+      // Save the order to the database.
+      await db.order.create({
+        data: {
+          id: payload.id,
+          orderNumber: payload.order_number,
+          totalPrice: payload.total_price,
+          createdAt: payload.created_at,
+        },
+      });
       break;
     case "ORDERS_EDITED":
       console.log("orders/edit: ", payload);
