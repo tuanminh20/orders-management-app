@@ -54,11 +54,11 @@ export const action = async ({ request }) => {
         },
       });
       break;
-    case "ORDERS_EDITED":
-      console.log("orders/edit: ", payload);
+    case "ORDERS_UPDATED":
+      console.log("orders/updated: ", payload);
 
       const order = await db.order.findUnique({
-        where: { id: payload.order_edit.order_id }
+        where: { id: payload.id }
       });
 
       if (order) {
