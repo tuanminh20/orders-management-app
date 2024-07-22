@@ -56,6 +56,46 @@ export const action = async ({ request }) => {
       break;
     case "ORDERS_EDITED":
       console.log("orders/edit: ", payload);
+
+      order = await db.order.findUnique({
+        where: { id: payload.id }
+      });
+
+      if (order) {
+        await db.order.update({
+          data: {
+            orderNumber: payload.order_number,
+            totalPrice: payload.total_price,
+            createdAt: payload.created_at,
+            updatedAt: payload.updated_at,
+            paymentGatewayNames: payload.payment_gateway_names.join(", "),
+            customer: {
+              connectOrCreate: {
+                where: { id: payload.customer.id },
+                create: {
+                  id: payload.customer.id,
+                  email: payload.customer.email,
+                  firstName: payload.customer.first_name,
+                  lastName: payload.customer.last_name,
+                  address: payload.customer.default_address.country,
+                },
+              },
+            },
+            tags: {
+              connectOrCreate: payload.tags.split(',').map((tag) => ({
+                where: { name: tag.trim() },
+                create: {
+                  name: tag.trim(),
+                },
+              })),
+            },
+          },
+          include: {
+            customer: true,
+            tags: true,
+          },
+        });
+      }
       break;
     case "APP_UNINSTALLED":
       if (session) {
