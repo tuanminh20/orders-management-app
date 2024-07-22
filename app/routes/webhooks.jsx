@@ -57,8 +57,8 @@ export const action = async ({ request }) => {
     case "ORDERS_EDITED":
       console.log("orders/edit: ", payload);
 
-      order = await db.order.findUnique({
-        where: { id: payload.id }
+      const order = await db.order.findUnique({
+        where: { id: payload.order_edit.order_id }
       });
 
       if (order) {

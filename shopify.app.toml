@@ -3,7 +3,7 @@
 client_id = "a3724dd7a289c9ad81f683ce7c5f1f31"
 name = "orders-management-app"
 handle = "orders-management-app-1"
-application_url = "https://pump-recording-hear-mono.trycloudflare.com"
+application_url = "https://provided-cite-includes-legislation.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "read_orders,write_products"
 
 [auth]
 redirect_urls = [
-  "https://pump-recording-hear-mono.trycloudflare.com/auth/callback",
-  "https://pump-recording-hear-mono.trycloudflare.com/auth/shopify/callback",
-  "https://pump-recording-hear-mono.trycloudflare.com/api/auth/callback"
+  "https://provided-cite-includes-legislation.trycloudflare.com/auth/callback",
+  "https://provided-cite-includes-legislation.trycloudflare.com/auth/shopify/callback",
+  "https://provided-cite-includes-legislation.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
