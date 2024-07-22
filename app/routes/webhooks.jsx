@@ -28,7 +28,7 @@ export const action = async ({ request }) => {
           paymentGatewayNames: payload.payment_gateway_names.join(", "),
           customer: {
             connectOrCreate: {
-              where: { id: payload.customer.id },
+              where: { customerId: payload.customer.id },
               create: {
                 id: payload.customer.id,
                 email: payload.customer.email,
