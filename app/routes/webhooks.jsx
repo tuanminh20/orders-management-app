@@ -30,6 +30,7 @@ export const action = async ({ request }) => {
             connectOrCreate: {
               where: { id: payload.customer.id },
               create: {
+                id: payload.customer.id,
                 email: payload.customer.email,
                 firstName: payload.customer.first_name,
                 lastName: payload.customer.last_name,
