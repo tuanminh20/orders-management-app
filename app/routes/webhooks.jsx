@@ -2,6 +2,7 @@ import { authenticate } from "../shopify.server";
 import db from "../db.server";
 import { create } from "domain";
 import { Tag } from "@shopify/polaris";
+import { connect } from "http2";
 
 export const action = async ({ request }) => {
   const { topic, shop, session, admin, payload } = await authenticate.webhook(request);
@@ -25,6 +26,17 @@ export const action = async ({ request }) => {
           createdAt: payload.created_at,
           updatedAt: payload.updated_at,
           paymentGatewayNames: payload.payment_gateway_names.join(", "),
+          customer: {
+            connectOrCreate: {
+              where: { id: payload.customer.id },
+              create: {
+                email: payload.customer.email,
+                firstName: payload.customer.first_name,
+                lastName: payload.customer.last_name,
+                address: payload.customer.default_address.country,
+              },
+            },
+          }
         },
       });
       break;
