@@ -31,6 +31,11 @@ erDiagram
     ORDER zero or more -- zero or more TAG : has
 ```
 
+## App screenshots
+
+<img width="1512" alt="SCR-20240723-otbx" src="https://github.com/user-attachments/assets/598cc6cf-dae3-48fa-be56-b47746ab3443">
+<img width="1512" alt="SCR-20240723-otih" src="https://github.com/user-attachments/assets/88440c42-f415-4b9b-a5ca-f9c58f8d6c0b">
+
 ## Quick start
 
 ### Prerequisites
