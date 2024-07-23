@@ -1,5 +1,36 @@
 # orders-management-app
 
+## Database design
+
+```mermaid
+erDiagram
+    CUSTOMER {
+        BigInt id PK
+        String firstName
+        String lastName
+        String email
+        String address
+    }
+
+    ORDER {
+        BigInt id PK
+        Int orderNumber
+        String totalPrice
+        DateTime createdAt
+        DateTime updatedAt
+        String paymentGatewayNames
+        BigInt customerId FK
+    }
+
+    TAG {
+        Int id PK
+        String name "UNIQUE"
+    }
+
+    CUSTOMER only one -- zero or more ORDER : has
+    ORDER zero or more -- zero or more TAG : has
+```
+
 ## Quick start
 
 ### Prerequisites
