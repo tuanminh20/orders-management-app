@@ -36,6 +36,12 @@ erDiagram
 <img width="1512" alt="SCR-20240723-otbx" src="https://github.com/user-attachments/assets/598cc6cf-dae3-48fa-be56-b47746ab3443">
 <img width="1512" alt="SCR-20240723-otih" src="https://github.com/user-attachments/assets/88440c42-f415-4b9b-a5ca-f9c58f8d6c0b">
 
+## Sample exported CSV file
+
+[orders.csv](https://github.com/user-attachments/files/16346910/orders.csv)Order Number,Total Price,Payment Gateway,Customer Email,Customer Full Name,Customer Address,Tags,Created At
+1024,144760,"manual",dlinh.reg@gmail.com,Minh Nguyen,"Hanoi, Vietnam","First tag,Second tag",2024-07-22T06:16:25.000Z
+1023,144430,"manual",dlinh.reg@gmail.com,Minh Nguyen,"Hanoi, Vietnam","First tag,Second tag,Test Tag",2024-07-22T06:14:10.000Z
+
 ## Quick start
 
 ### Prerequisites
