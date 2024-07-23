@@ -86,7 +86,7 @@ export default function Index() {
           </Text>
         </IndexTable.Cell>
         <IndexTable.Cell>
-          {new Date(order.createdAt).toDateString()}
+          {new Date(order.createdAt).toLocaleString()}
         </IndexTable.Cell>
         <IndexTable.Cell>{[order.customer.firstName, order.customer.lastName].join(' ')}</IndexTable.Cell>
         <IndexTable.Cell>{order.customer.email}</IndexTable.Cell>
