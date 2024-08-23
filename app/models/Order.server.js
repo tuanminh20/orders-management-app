@@ -11,6 +11,7 @@ export async function getOrders() {
 
   if (orders.length === 0) return [];
 
+  // https://stackoverflow.com/questions/75947475/prisma-typeerror-do-not-know-how-to-serialize-a-bigint
   // Fix TypeError: Do not know how to serialize a BigInt
   return orders.map((order) => ({
     ...order,
