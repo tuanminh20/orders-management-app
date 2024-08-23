@@ -40,6 +40,10 @@ erDiagram
 
 [orders.csv](https://github.com/user-attachments/files/16346910/orders.csv)
 
+## Use case for webhooks
+- Informing partner companies about changes in orders.
+- Integrating data about orders with accounting software.
+
 ## Quick start
 
 ### Prerequisites
