@@ -41,6 +41,7 @@ model Order {
   customer            Customer @relation(fields: [customerId], references: [id])
   customerId          BigInt
   tags                Tag[]
+  // shopify-event-id   BigInt // To handle duplicate webhooks
   // @@index([customerId], name: "customer_id")
   // @@index([orderNumber], name: "order_number")
   // @@index([tags.name], name: "tags_name")
