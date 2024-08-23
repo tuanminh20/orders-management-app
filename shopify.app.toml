@@ -3,7 +3,7 @@
 client_id = "a3724dd7a289c9ad81f683ce7c5f1f31"
 name = "orders-management-app"
 handle = "orders-management-app-1"
-application_url = "https://plays-scenes-implementing-dangerous.trycloudflare.com"
+application_url = "https://usage-hazard-scenes-affect.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "read_orders,write_products"
 
 [auth]
 redirect_urls = [
-  "https://plays-scenes-implementing-dangerous.trycloudflare.com/auth/callback",
-  "https://plays-scenes-implementing-dangerous.trycloudflare.com/auth/shopify/callback",
-  "https://plays-scenes-implementing-dangerous.trycloudflare.com/api/auth/callback"
+  "https://usage-hazard-scenes-affect.trycloudflare.com/auth/callback",
+  "https://usage-hazard-scenes-affect.trycloudflare.com/auth/shopify/callback",
+  "https://usage-hazard-scenes-affect.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
@@ -27,7 +27,7 @@ api_version = "2024-07"
 
   [[webhooks.subscriptions]]
   topics = [ "app/uninstalled", "orders/create", "orders/updated" ]
-  uri = "/webhooks" # using the relative URL "/webhooks" because app URL will update every time you run shopify app dev
+  uri = "/webhooks"
 
   [[webhooks.subscriptions]]
   topics = [ "orders/create", "orders/updated" ]
