@@ -47,6 +47,9 @@ erDiagram
 - topics: `orders/create` and `orders/updated`
 - endpoints: https://webhook.site/b01b6e7a-6dd5-402e-b19f-60ce4b81c524 and /webhooks
 - TODO: integrate with cloud-based like Google Pub/Sub
+## Configuration for webhooks
+- to use above webhooks topics, it requires read_orders scope (can access private customer data)
+- to configure, read [this](https://shopify.dev/docs/apps/build/webhooks/subscribe/get-started?framework=remix&deliveryMethod=https#configure-your-webhook-subscription)
 
 ## Quick start
 
