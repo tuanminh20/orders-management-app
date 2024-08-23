@@ -26,7 +26,7 @@ export const action = async ({ request }) => {
           totalPrice: payload.total_price,
           createdAt: payload.created_at,
           updatedAt: payload.updated_at,
-          paymentGatewayNames: payload.payment_gateway_names.join(", "),
+          paymentGatewayNames: payload.payment_gateway_names.join(", ") || "not defined",
           customer: {
             connectOrCreate: {
               where: { id: payload.customer.id },
@@ -68,7 +68,7 @@ export const action = async ({ request }) => {
             totalPrice: payload.total_price,
             createdAt: payload.created_at,
             updatedAt: payload.updated_at,
-            paymentGatewayNames: payload.payment_gateway_names.join(", "),
+            paymentGatewayNames: payload.payment_gateway_names.join(", ") || "not defined",
             customer: {
               connectOrCreate: {
                 where: { id: payload.customer.id },
