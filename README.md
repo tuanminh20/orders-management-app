@@ -43,6 +43,10 @@ erDiagram
 ## Use case for webhooks
 - Informing partner companies about changes in orders.
 - Integrating data about orders with accounting software.
+## Webhook subscription
+- topics: `orders/create` and `orders/updated`
+- endpoints: https://webhook.site/b01b6e7a-6dd5-402e-b19f-60ce4b81c524 and /webhooks
+- TODO: integrate with cloud-based like Google Pub/Sub
 
 ## Quick start
 
