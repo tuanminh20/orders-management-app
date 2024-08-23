@@ -27,7 +27,7 @@ api_version = "2024-07"
 
   [[webhooks.subscriptions]]
   topics = [ "app/uninstalled", "orders/create", "orders/updated" ]
-  uri = "/webhooks"
+  uri = "/webhooks" # using the relative URL "/webhooks" because app URL will update every time you run shopify app dev
 
   [[webhooks.subscriptions]]
   topics = [ "orders/create", "orders/updated" ]
