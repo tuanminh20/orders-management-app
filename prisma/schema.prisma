@@ -44,6 +44,7 @@ model Order {
   // @@index([customerId], name: "customer_id")
   // @@index([orderNumber], name: "order_number")
   // @@index([tags.name], name: "tags_name")
+  // @index([updatedAt], name: "updated_at") // Because maybe default order by updatedAt/createdAt
 }
 
 model Customer {
