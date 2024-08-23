@@ -63,6 +63,7 @@ export const action = async ({ request }) => {
 
       if (order) {
         await db.order.update({
+          where: { id: payload.id },
           data: {
             tags: {
               set: [],
@@ -74,6 +75,7 @@ export const action = async ({ request }) => {
         });
 
         await db.order.update({
+          where: { id: payload.id },
           data: {
             orderNumber: payload.order_number,
             totalPrice: payload.total_price,
@@ -93,12 +95,12 @@ export const action = async ({ request }) => {
               },
             },
             tags: {
-              connectOrCreate: payload.tags.split(',').map((tag) => {
-                return {
-                  where: { name: tag.trim() },
-                  create: { name: tag.trim() },
-                };
-              }),
+              connectOrCreate: payload.tags.split(',').map((tag) => ({
+                where: { name: tag.trim() },
+                create: {
+                  name: tag.trim(),
+                },
+              })),
             },
           },
           include: {
