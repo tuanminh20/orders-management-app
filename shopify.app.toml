@@ -3,7 +3,7 @@
 client_id = "a3724dd7a289c9ad81f683ce7c5f1f31"
 name = "orders-management-app"
 handle = "orders-management-app-1"
-application_url = "https://mauritius-challenged-walked-netherlands.trycloudflare.com"
+application_url = "https://plays-scenes-implementing-dangerous.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "read_orders,write_products"
 
 [auth]
 redirect_urls = [
-  "https://mauritius-challenged-walked-netherlands.trycloudflare.com/auth/callback",
-  "https://mauritius-challenged-walked-netherlands.trycloudflare.com/auth/shopify/callback",
-  "https://mauritius-challenged-walked-netherlands.trycloudflare.com/api/auth/callback"
+  "https://plays-scenes-implementing-dangerous.trycloudflare.com/auth/callback",
+  "https://plays-scenes-implementing-dangerous.trycloudflare.com/auth/shopify/callback",
+  "https://plays-scenes-implementing-dangerous.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
@@ -31,7 +31,7 @@ api_version = "2024-07"
 
   [[webhooks.subscriptions]]
   topics = [ "orders/create", "orders/updated" ]
-  uri = "https://webhook.site/b01b6e7a-6dd5-402e-b19f-60ce4b81c524"
+  uri = "https://webhook.site/2abf2500-131d-486a-94fb-687dfbc7da9a"
 
 [pos]
 embedded = false
