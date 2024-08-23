@@ -84,8 +84,8 @@ export const action = async ({ request }) => {
             tags: {
               connectOrCreate: payload.tags.split(',').map((tag) => {
                 return {
-                  where: { name: tag.trim() },
-                  create: { name: tag.trim() },
+                  where: { name: tag },
+                  create: { name: tag },
                 };
               }),
             },
