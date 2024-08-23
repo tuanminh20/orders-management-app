@@ -50,6 +50,10 @@ erDiagram
 ## Configuration for webhooks
 - to use above webhooks topics, it requires read_orders scope (can access private customer data)
 - to configure, read [this](https://shopify.dev/docs/apps/build/webhooks/subscribe/get-started?framework=remix&deliveryMethod=https#configure-your-webhook-subscription)
+## Reference
+- https://shopify.dev/docs/api/webhooks?reference=toml#list-of-topics-orders/create
+- https://shopify.dev/docs/api/webhooks?reference=toml#list-of-topics-orders/updated
+- [Order Resource](https://shopify.dev/docs/api/admin-rest/2024-07/resources/order)
 
 ## Quick start
 
