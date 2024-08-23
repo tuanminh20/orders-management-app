@@ -33,7 +33,7 @@ model Session {
 
 model Order {
   id                  BigInt   @id @default(autoincrement())
-  orderNumber         Int
+  orderNumber         Int      // @unique
   totalPrice          String   @default("0")
   createdAt           DateTime @default(now())
   updatedAt           DateTime @default(now())
@@ -41,6 +41,9 @@ model Order {
   customer            Customer @relation(fields: [customerId], references: [id])
   customerId          BigInt
   tags                Tag[]
+  // @@index([customerId], name: "customer_id")
+  // @@index([orderNumber], name: "order_number")
+  // @@index([tags.name], name: "tags_name")
 }
 
 model Customer {
