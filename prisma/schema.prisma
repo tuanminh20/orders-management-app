@@ -61,4 +61,5 @@ model Tag {
   id     Int     @id @default(autoincrement())
   name   String  @unique
   orders Order[]
+  // @index([name], name: "name")
 }
