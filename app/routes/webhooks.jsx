@@ -82,12 +82,12 @@ export const action = async ({ request }) => {
               },
             },
             tags: {
-              connectOrCreate: payload.tags.split(',').map((tag) => ({
-                where: { name: tag.trim() },
-                create: {
-                  name: tag.trim(),
-                },
-              })),
+              connectOrCreate: payload.tags.split(',').map((tag) => {
+                return {
+                  where: { name: tag.trim() },
+                  create: { name: tag.trim() },
+                };
+              }),
             },
           },
           include: {
